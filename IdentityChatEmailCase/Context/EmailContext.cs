@@ -11,6 +11,7 @@ namespace IdentityChatEmailCase.Context
             optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS; Initial Catalog=EmailChatCaseDb; Integrated Security=true; Trust Server Certificate=true");
         }
 
+        public DbSet<Message> Messages { get; set; }
         
     }
 }
