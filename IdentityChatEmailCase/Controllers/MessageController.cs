@@ -17,19 +17,31 @@ namespace IdentityChatEmailCase.Controllers
             _userManager = userManager;
         }
 
-        [Authorize]
-        public async Task<IActionResult> Inbox()
+  
+        public async Task<IActionResult> Inbox(string search)
         {
+            ViewBag.Kategori = "Mesajlar";
+            ViewBag.AltKategori = "Gelen Kutusu";
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
             ViewBag.email = values.Email;
             ViewBag.v1 = values.Name + " " + values.Surname;
-
-            var messages = _context.Messages.Where(x => x.ReceiverEmail == values.Email).ToList();
+            List<Message> messages;
+            if(!string.IsNullOrWhiteSpace(search))
+            {
+                messages = _context.Messages.Where(x => x.ReceiverEmail == values.Email).Where(x => x.Subject.ToLower().Contains(search.ToLower())).ToList();
+            }
+            else
+            {
+                messages = _context.Messages.Where(x => x.ReceiverEmail == values.Email).ToList();
+            }
+            messages = messages.OrderByDescending(x => x.SendDate).ToList();    
             return View(messages);
         }
 
-        public async Task<IActionResult> SendBox()
+        public async Task<IActionResult> SendBox(string search)
         {
+            ViewBag.Kategori = "Mesajlar";
+            ViewBag.AltKategori = "Giden Kutusu";
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
             string emailValue = values.Email;
             var sendMessageList = _context.Messages.Where(x => x.SenderMail == emailValue).ToList();
