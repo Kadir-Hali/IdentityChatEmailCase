@@ -1,0 +1,47 @@
+﻿@model List<IdentityChatEmailCase.Entities.Message>
+@{
+    ViewData["Title"] = "Inbox";
+    Layout = "~/Views/Shared/_MessageLayout.cshtml";
+}
+
+<div class="email-right-box">
+    <div role="toolbar" class="toolbar">
+        <br />
+        <div class="m-2">
+            <form action="get">
+                <div class="input-group icons">
+
+                    <div class="input-group-prepend">
+                        <button class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i class="mdi mdi-magnify"></i></button>
+                    </div>
+                    <input type="text" name="search" value="@Context.Request.Query["search"]" class="form-control" placeholder="Konuya Göre Ara...">
+                </div>
+            </form>
+
+        </div>
+        <br />
+    </div>
+    <div class="email-list m-t-15">
+        <div class="message">
+            <a href="#">
+                <div class="col-mail col-mail-2">
+                    <div class="subject"><b>Konu ve Mesaj İçeriği</b></div>
+                    <div class="date"><b>Tarih : </b></div>
+                </div>
+            </a>
+        </div>
+        @foreach (var item in Model)
+        {
+            <div class="message">
+                <a href="/Message/MessageDetail/@item.MessageId">
+                    <div class="col-mail col-mail-2">
+                        <div class="subject"><b>@item.Subject</b> - @(item.MessageDetail.Length > 80 ? item.MessageDetail.Substring(0, 80) + "..." : item.MessageDetail)</div>
+                        <div class="date">@item.SendDate.ToString("dd-MMM HH:mm")</div>
+                    </div>
+                </a>
+            </div>
+        }
+
+    </div>
+</div>
+
