@@ -1,0 +1,27 @@
+﻿@model IdentityChatEmailCase.Entities.Message
+@{
+    ViewData["Title"] = "MessageDetail";
+    Layout = "~/Views/Shared/_MessageLayout.cshtml";
+}
+
+<div class="email-right-box">
+    <div class="read-content">
+        <div class="media pt-5">
+            <img class="mr-3 rounded-circle" src="~/quixlab-master/images/avatar/1.jpg">
+            <div class="media-body">
+                <h5 class="m-b-3">@Model.SenderMail</h5>
+                <p class="m-b-2">@Model.SendDate.ToString("dd/MMM/yyyy")</p>
+            </div>
+
+        </div>
+        <hr>
+        <div class="media mb-4 mt-1">
+            <div class="media-body">
+                <span class="float-right">@Model.SendDate.ToString("HH:mm")</span>
+                <h4 class="m-0 text-primary">@Model.Subject</h4><small class="text-muted">Alıcı: @Model.ReceiverEmail</small>
+            </div>
+        </div>
+        <p>@Model.MessageDetail</p>
+    </div>
+</div>
+
