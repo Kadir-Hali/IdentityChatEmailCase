@@ -13,26 +13,25 @@ A user-based messaging system built with ASP.NET Core MVC and ASP.NET Identity. 
 - 🧑‍💼 Admin Panel to Create New Users
 
 ---
-
-## 🖼️ Screenshots
+## 📷 Screenshots
 
 ### 🔐 Registration Form
-![Registration Form](/mnt/data/Identity1.jpeg)
+![Registration Form](Identity1.jpeg)
 
 ### 🔑 Login Form
-![Login Form](/mnt/data/Identity2.jpeg)
+![Login Form](Identity2.jpeg)
 
 ### ✉️ Compose New Message
-![Compose Message](/mnt/data/Identity3.jpeg)
+![Compose Message](Identity3.jpeg)
 
 ### ✅ Successful Submission Popup
-![Success Popup](/mnt/data/Identity4.jpeg)
+![Success Popup](Identity4.jpeg)
 
 ### 📤 Outbox View
-![Outbox](/mnt/data/Identity5.jpeg)
+![Outbox](Identity5.jpeg)
 
 ### 👤 Profile Details and Update
-![Profile Update](/mnt/data/Identity6.jpeg)
+![Profile Update](Identity6.jpeg)
 
 ---
 
