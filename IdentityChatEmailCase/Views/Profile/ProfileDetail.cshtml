@@ -1,0 +1,62 @@
+﻿@model IdentityChatEmailCase.Models.UpdateProfileViewModel
+@{
+    ViewData["Title"] = "ProfileDetail";
+    Layout = "~/Views/Shared/_MessageLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8 col-xl-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="media align-items-center mb-4">
+                        <img class="mr-3" src="~/quixlab-master/images/user/kadirpp.jpeg" width="80" height="80" alt="">
+                        <div class="media-body">
+                            <h3 class="mb-0">@Model.Name @Model.Surname</h3>
+                        </div>
+                    </div>
+
+                    <div class="row mb-5">
+                        <div class="col">
+                            <div class="card card-profile text-center">
+                                <span class="mb-1 text-primary"><i class="icon-people"></i></span>
+                                <h3 class="mb-0">@ViewBag.GonderilenMesaj</h3>
+                                <p class="text-muted px-4">Gönderilen Mesaj</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card card-profile text-center">
+                                <span class="mb-1 text-warning"><i class="icon-user-follow"></i></span>
+                                <h3 class="mb-0">@ViewBag.AlinanMesaj</h3>
+                                <p class="text-muted">Alınan Mesaj</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-xl-6">
+            <div class="card">
+                <div class="basic-form">
+                    <div class="form-group">
+                        <form method="post">
+                            <input type="text" class="form-control input-rounded" asp-for="Name" placeholder="İsim">
+                            <br />
+                            <input type="text" class="form-control input-rounded" asp-for="Surname" placeholder="Soyisim">
+                            <br />
+                            <input type="password" class="form-control input-rounded" asp-for="Password" placeholder="Mevcut Şifre">
+                            <br />
+                            <input type="password" class="form-control input-rounded" asp-for="NewPassword" placeholder="Yeni Şifre">
+                            <br />
+                            <button type="submit" class="btn btn-dark mb-2">Güncelle</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
